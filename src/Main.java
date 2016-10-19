@@ -12,6 +12,7 @@ public class Main {
         while (true) {
             System.out.print("? ");
             input = reader.nextLine();
+            //Make input case-insensitive
             input = input.trim().toUpperCase();
 
             if (input.equals("ADD")) {
