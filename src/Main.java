@@ -25,17 +25,17 @@ public class Main {
                 String latinName = reader.nextLine();
                 db.addBird(new Bird(name, latinName));
 
-            } else if (input.equals("OBSERVATION")) {
+            } else if (input.equals("OBSERVE")) {
                 System.out.print("What was observed:? ");
                 String name = reader.nextLine();
                 if (db.hasByName(name)) {
                     db.observeByName(name);
                 } else {
-                    System.out.println("Is not a bird!");
+                    System.out.println("Sorry, I don't recognize that bird.");
                 }
 
             } else if (input.equals("SHOW")) {
-                System.out.print("What? ");
+                System.out.print("Which bird to show? ");
                 input = reader.nextLine();
                 System.out.println(db.showByName(input));
 
@@ -48,7 +48,7 @@ public class Main {
             } else if (input.equals("QUIT")) {
                 break;
             } else {
-                System.out.println("Sorry, I didn't quite get that.");
+                System.out.println("Sorry, that's not a recognized command.");
             }
 
         }
@@ -57,9 +57,9 @@ public class Main {
     
     public static void printHelp(){
     	System.out.println("Add - adds a bird");
-        System.out.println("Observation - adds an observation");
-        System.out.println("Statistics - prints all the birds");
-        System.out.println("Show - prints one bird");
+        System.out.println("Observe - adds an observation");
+        System.out.println("Statistics - prints all birds");
+        System.out.println("Show - prints specified bird");
         System.out.println("Quit - terminates the program");
     }
 
