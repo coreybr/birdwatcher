@@ -8,7 +8,10 @@ public class Main {
         Database db = new Database();
         String input;
 
-//Main input loop
+        //Print help initially
+        printHelp();
+        
+        //Main input loop
         while (true) {
             System.out.print("? ");
             input = reader.nextLine();
@@ -40,11 +43,7 @@ public class Main {
                 db.printBirds();
 
             } else if (input.equals("HELP") || input.equals("?")) {
-                System.out.println("Add - adds a bird");
-                System.out.println("Observation - adds an observation");
-                System.out.println("Statistics - prints all the birds");
-                System.out.println("Show - prints one bird");
-                System.out.println("Quit - terminates the program");
+                printHelp();
 
             } else if (input.equals("QUIT")) {
                 break;
@@ -54,6 +53,14 @@ public class Main {
 
         }
         reader.close();
+    }
+    
+    public static void printHelp(){
+    	System.out.println("Add - adds a bird");
+        System.out.println("Observation - adds an observation");
+        System.out.println("Statistics - prints all the birds");
+        System.out.println("Show - prints one bird");
+        System.out.println("Quit - terminates the program");
     }
 
 }
