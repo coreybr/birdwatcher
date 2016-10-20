@@ -1,7 +1,9 @@
+import java.io.Serializable;
 
-public class Bird {
+public class Bird  implements Serializable {
 
-    private String name;
+	private static final long serialVersionUID = 1L;
+	private String name;
     private String latinName;
     private int observations;
 
@@ -16,15 +18,15 @@ public class Bird {
     }
 
     public void observe() {
-        observations++;
+        this.observations++;
     }
 
     @Override
     public String toString() {
         if (observations == 1) {
-            return name + " (" + latinName + "): " + observations + " observation";
+            return this.name + " (" + latinName + "): " + this.observations + " observation";
         } else {
-            return name + " (" + latinName + "): " + observations + " observations";
+            return this.name + " (" + latinName + "): " + this.observations + " observations";
         }
     }
 
