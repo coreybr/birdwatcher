@@ -58,8 +58,24 @@ public class Database {
 		}
 	}
 
+	/*
+	 * Deletes existing serialization file.
+	 */
+	public void deleteBirds() {
+		birds.clear();
+		File f = new File(filePath);
+		if (f.exists()) {
+			f.delete();
+		}
+	}
+
 	public void addBird(Bird newBird) {
 		birds.add(newBird);
+		saveBirds();
+	}
+
+	public void removeBirdByName(String name) {
+		birds.remove(findByName(name));
 		saveBirds();
 	}
 

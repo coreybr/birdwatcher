@@ -28,6 +28,21 @@ public class UI {
 				System.out.print("Latin Name: ");
 				String latinName = reader.nextLine();
 				db.addBird(new Bird(name, latinName));
+				
+			} else if (input.equals("REMOVE")) {
+					System.out.print("Name: ");
+					String name = reader.nextLine();
+					db.removeBirdByName(name);
+					
+			} else if (input.equals("RESET")) {
+				System.out.print("Remove all birds and observations? Y/N: ");
+				String answer = reader.nextLine();
+				if (answer.trim().toUpperCase().equals("Y")){
+					System.out.println("Resetting...");
+					db.deleteBirds();
+				} else {
+					System.out.println("Reset cancelled.");
+				}
 
 			} else if (input.equals("OBSERVE")) {
 				System.out.print("What was observed:? ");
@@ -61,9 +76,11 @@ public class UI {
 
 	public static void printHelp() {
 		System.out.println("Add - adds a bird");
+		System.out.println("Remove - removes a bird");
 		System.out.println("Observe - adds an observation");
 		System.out.println("Stats - prints all birds");
 		System.out.println("Show - prints specified bird");
+		System.out.println("Reset - removes all birds and observations");
 		System.out.println("Quit - terminates the program");
 	}
 
