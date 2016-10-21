@@ -72,31 +72,31 @@ public class Database {
 		}
 	}
 
-	public boolean hasByName(String name) {
+	public Bird findByName(String name) {
 		for (Bird bird : birds) {
 			if (StringUtils.included(bird.getName(), name)) {
-				return true;
+				return bird;
 			}
 		}
-		return false;
+		return null;
+	}
+
+	public boolean hasByName(String name) {
+		return findByName(name) != null;
 	}
 
 	public void observeByName(String name) {
-		for (Bird bird : birds) {
-			if (StringUtils.included(bird.getName(), name)) {
-				bird.observe();
-				saveBirds();
-			}
-		}
+		findByName(name).observe();
+		saveBirds();
 	}
 
 	public String showByName(String name) {
-		for (Bird bird : birds) {
-			if (StringUtils.included(bird.getName(), name)) {
-				return bird.toString();
-			}
+		Bird bird = findByName(name);
+		if (bird != null) {
+			return bird.toString();
+		} else {
+			return "Sorry, I don't recognize that bird.";
 		}
-		return "Is not a bird!";
 	}
 
 }
