@@ -43,7 +43,7 @@ public class UI {
 				input = reader.nextLine();
 				System.out.println(db.showByName(input));
 
-			} else if (input.equals("STATISTICS")) {
+			} else if (input.equals("STATS")) {
 				db.printBirds();
 
 			} else if (input.equals("HELP") || input.equals("?")) {
@@ -62,7 +62,7 @@ public class UI {
 	public static void printHelp() {
 		System.out.println("Add - adds a bird");
 		System.out.println("Observe - adds an observation");
-		System.out.println("Statistics - prints all birds");
+		System.out.println("Stats - prints all birds");
 		System.out.println("Show - prints specified bird");
 		System.out.println("Quit - terminates the program");
 	}
