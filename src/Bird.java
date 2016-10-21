@@ -19,6 +19,11 @@ public class Bird implements Serializable {
 
 	public void observe() {
 		this.observations++;
+		if (observations == 1) {
+			System.out.println("Observed " + this.name + " " + this.observations + " time.");
+		} else {
+			System.out.println("Observed " + this.name + " " + this.observations + " times.");
+		}
 	}
 
 	@Override
