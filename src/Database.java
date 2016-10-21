@@ -73,7 +73,6 @@ public class Database {
 	}
 
 	public boolean hasByName(String name) {
-		ArrayList<Bird> result = new ArrayList<Bird>();
 		for (Bird bird : birds) {
 			if (StringUtils.included(bird.getName(), name)) {
 				return true;
@@ -83,7 +82,6 @@ public class Database {
 	}
 
 	public void observeByName(String name) {
-		ArrayList<Bird> result = new ArrayList<Bird>();
 		for (Bird bird : birds) {
 			if (StringUtils.included(bird.getName(), name)) {
 				bird.observe();
@@ -93,7 +91,6 @@ public class Database {
 	}
 
 	public String showByName(String name) {
-		ArrayList<Bird> result = new ArrayList<Bird>();
 		for (Bird bird : birds) {
 			if (StringUtils.included(bird.getName(), name)) {
 				return bird.toString();
