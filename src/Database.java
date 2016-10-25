@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class Database {
 
-	private ArrayList<Bird> birds;
+	ArrayList<Bird> birds;
 	private String filePath = "birds.ser";
 
 	public Database() {
