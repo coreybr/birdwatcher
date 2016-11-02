@@ -15,6 +15,14 @@ public class Database {
 	public Database() {
 		loadBirds();
 	}
+	
+	public Database(boolean loadFromFile) {
+		if (loadFromFile){
+			loadBirds();
+		} else {
+			birds = new ArrayList<Bird>();
+		}
+	}
 
 	/*
 	 * Load List of birds from file. Create new list if file not found.

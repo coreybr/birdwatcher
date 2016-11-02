@@ -17,16 +17,11 @@ public class DatabaseTest {
 	@Before
 	public void setUpStreams() {
 	    System.setOut(new PrintStream(outContent));
-	    // Delete existing file for test
-	    Database db = new Database();
-	    db.deleteBirds();
-	    db = null;
 	}
 
 	@After
 	public void cleanUpStreams() {
 	    System.setOut(null);
-	    System.setErr(null);
 	}
 	
 	/*
@@ -34,13 +29,13 @@ public class DatabaseTest {
 	 */
 	@Test
 	public void testDatabase() {
-		Database db = new Database();
+		Database db = new Database(false);
 		assertNotNull(db.birds);
 	}
 
 	@Test
 	public void testDeleteBirds() {
-		Database db = new Database();
+		Database db = new Database(false);
 		assertTrue(db.birds.isEmpty());
 		db.addBird(new Bird("Blue jay", "Cyanocitta cristata"));
 		assertSame(1, db.birds.size());
@@ -50,7 +45,7 @@ public class DatabaseTest {
 
 	@Test
 	public void testAddBird() {
-		Database db = new Database();
+		Database db = new Database(false);
 		assertTrue(db.birds.isEmpty());
 		db.addBird(new Bird("Blue jay", "Cyanocitta cristata"));
 		assertSame(1, db.birds.size());
@@ -58,7 +53,7 @@ public class DatabaseTest {
 
 	@Test
 	public void testRemoveBirdByName() {
-		Database db = new Database();
+		Database db = new Database(false);
 		assertTrue(db.birds.isEmpty());
 		db.addBird(new Bird("Blue jay", "Cyanocitta cristata"));
 		db.addBird(new Bird("Red-tailed hawk", "Buteo jamaicensis"));
@@ -70,7 +65,7 @@ public class DatabaseTest {
 
 	@Test
 	public void testPrintBirds() {
-		Database db = new Database();
+		Database db = new Database(false);
 		assertTrue(db.birds.isEmpty());
 		db.addBird(new Bird("Blue jay", "Cyanocitta cristata"));
 		db.addBird(new Bird("Red-tailed hawk", "Buteo jamaicensis"));
@@ -80,7 +75,7 @@ public class DatabaseTest {
 
 	@Test
 	public void testFindByName() {
-		Database db = new Database();
+		Database db = new Database(false);
 		assertTrue(db.birds.isEmpty());
 		Bird blueJay = new Bird("Blue jay", "Cyanocitta cristata");
 		db.addBird(blueJay);
@@ -90,7 +85,7 @@ public class DatabaseTest {
 
 	@Test
 	public void testHasByName() {
-		Database db = new Database();
+		Database db = new Database(false);
 		assertTrue(db.birds.isEmpty());
 		db.addBird(new Bird("Blue jay", "Cyanocitta cristata"));
 		assertFalse(db.hasByName("Red-tailed hawk"));
@@ -100,7 +95,7 @@ public class DatabaseTest {
 
 	@Test
 	public void testObserveByName() {
-		Database db = new Database();
+		Database db = new Database(false);
 		assertTrue(db.birds.isEmpty());
 		db.addBird(new Bird("Blue jay", "Cyanocitta cristata"));
 		db.addBird(new Bird("Red-tailed hawk", "Buteo jamaicensis"));
@@ -112,7 +107,7 @@ public class DatabaseTest {
 
 	@Test
 	public void testShowByName() {
-		Database db = new Database();
+		Database db = new Database(false);
 		assertTrue(db.birds.isEmpty());
 		db.addBird(new Bird("Blue jay", "Cyanocitta cristata"));
 		db.addBird(new Bird("Red-tailed hawk", "Buteo jamaicensis"));
